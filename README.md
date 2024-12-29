@@ -28,3 +28,46 @@ it worked
 - "docker start my-app-container" to start the container
 - "docker stop my-app-container" to stop container
 - "docker rm my-app-container" to remove the container
+
+
+
+## Second part
+- Explore Docker Networking:
+Set up a Docker container with a custom network configuration. Provide the network configuration details and commands used to set it up.
+
+![alt text](image-6.png)
+
+## Summary of Commands:
+Create a custom network:
+- I ran "docker network create --driver bridge --subnet 192.168.100.0/24 --gateway 192.168.100.1 my-custom-network"
+
+- I ran "docker network inspect my-custom-network" to inspect the network
+
+- To run a container with the custom network:
+
+docker run -d --name my-container --network my-custom-network nginx
+![alt text](image-7.png)
+
+- Inspect the container's network configuration:
+docker inspect my-container
+
+Result 
+
+![alt text](image-8.png)
+
+
+- Run a second container on the same custom network:
+docker run -d --name my-second-container --network my-custom-network redis
+
+![alt text](image-9.png)
+
+
+- Disconnect a container from the network:
+docker network disconnect my-custom-network my-container
+
+
+Remove the custom network:
+docker network rm my-custom-network
+
+
+This setup allows you to configure your Docker containers with a custom network, providing more control over their IP addresses, subnets, and communication between containers.
