@@ -1,6 +1,6 @@
-##clone
+## clone
 - Created a simple Dockerfile for a basic web application using the following GitHub repository: https://github.com/josephifekwe97/my-app.git.
-#run docker
+# run docker
 - I ran "docker run -d -p 3000:3000 --name my-app-container my-app:latest" to expose port 3000 and run a container using the built image
 it was successful
 - i ran "docker ps" to see if it was
@@ -21,7 +21,7 @@ it was successful
 it worked
 ![alt text](image-5.png)
 
-#List of all commands
+# List of all commands
 - "docker build -t my-app:latest ." to build the container
 - "docker run -d -p 3000:3000 --name my-app-container my-app:latest" to run the built container
 - "docker ps -a" to list all containers
